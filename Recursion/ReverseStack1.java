@@ -1,3 +1,9 @@
+package Recursion;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Stack;
+
 class ReverseStack1
 {
     public static void reverseStack(Stack<Integer> st) {
