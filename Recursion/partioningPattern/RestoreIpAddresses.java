@@ -1,6 +1,9 @@
 package Recursion.partioningPattern;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 class RestoreIpAddresses {
     public List<String> restoreIpAddresses(String s) {
 
