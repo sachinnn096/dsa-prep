@@ -1,4 +1,4 @@
-package stack.linklistImp;
+package stack;
 
 import java.util.Deque;
 
