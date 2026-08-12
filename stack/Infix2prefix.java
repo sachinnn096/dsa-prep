@@ -1,6 +1,9 @@
 package stack;
 
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 class Infix2prefix {
     static String infixToPrefix(String s) {
 
