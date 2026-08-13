@@ -22,7 +22,8 @@ class Infix2prefix {
         //   +*  kyuke + se phale * solve hoga toh(Bodmas) ....* push kiya jaa skta h
         // *+ lekin yha * ke prioriyt jyda h toh phale vo solve hoga then + push krenge
 
-
+        StringBuilder b = new StringBuilder();
+        b.
 
         //code
         //store +-*()
