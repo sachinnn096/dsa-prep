@@ -4,6 +4,13 @@ package stack;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+//algorithm
+// 5 4 3 3 2 -- push alll the vaues into stack   why trying to build v or u type structure which will hold water
+//  4 ( right boundary )removing untill curr > stack.peek ...because it can store water
+// in case 2 6 ...means 6>2 pop 2 but id doesnot have leftwall to stop water
+// to find area Math.min( leftboundary , rightboundary ) - currentHeight  * width
+//stack main push kro and move on
+
 class TrappingRainWater1 {
     public int trap(int[] height) {
 
