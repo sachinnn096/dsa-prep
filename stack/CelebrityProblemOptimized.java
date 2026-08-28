@@ -5,16 +5,16 @@ package stack;
 
 //hint 2 pointer approach
 //for more hints go down
-
 class CelebrityProblemOptimized {
     public int celebrity(int mat[][]) {
         // code here
 
-
+        if( mat == null || mat.length == 0 ) return -1;
         //approach
         //1. traverse from left to right and choose every person one by one as a celebrity
-
         int n = mat.length;
+
+        if( n == 1 ) return 0;
 
         //ith person is choosed as celebrity
 
@@ -24,22 +24,16 @@ class CelebrityProblemOptimized {
 
         while( left < right ){
             //case 1 either both knows each other or no one
-            if( mat[left][right] == 1 && mat[right][left] == 1 || mat[left][right] == 0 && mat[right][left] == 0 ){
+            if( mat[left][right] == 1  ){
 
                 left++;
-                right--;
 
                 //case 2 & 3
-            }else if( mat[left][right] == 1 ){
-                left++;
-
             }else{
                 right--;
             }
 
         }
-
-        if( left > right ) return -1;
 
         int candidate = left;
 
@@ -55,13 +49,8 @@ class CelebrityProblemOptimized {
         return candidate;
     }
 
-    boolean know( int first, int second, int[][] matrix ){
 
-        if( matrix[first][second] == 1 ) return true;
-        return false;
-    }
 }
-
 
 // compare any two elements and eleminate the one
 //now think how can you move pointer in such a way untill everyone is eleminated or celebrity is found
