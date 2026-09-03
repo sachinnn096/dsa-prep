@@ -4,7 +4,7 @@ package stack;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-class Solution {
+class RemoveKDigits {
     public String removeKdigits(String num, int k) {
 
         //base case
