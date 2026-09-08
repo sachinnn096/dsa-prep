@@ -2,6 +2,9 @@ package slidingWindow;
 
 import java.util.HashMap;
 
+//just think in terms of you only have two baskets ...each basket can hold only one type in case if you got third type of fruit remove the holded one whose last occurence was appeared first
+
+
 class FruitBasket {
     public int totalFruit(int[] fruits) {
 
