@@ -1,68 +1,53 @@
-import java.util.Stack;
+import java.util.*;
 
 class Solution {
+    // Function to return the length of the longest substring that can be made of repeating characters
+    // by replacing at most k characters
+    public int characterReplacement(String s, int k) {
 
-    // Function to return precedence of operators
-    public static int prec(char c) {
-        if (c == '^')  // Exponent operator has highest precedence
-            return 3;
-        else if (c == '/' || c == '*')  // Multiplication and division have higher precedence than addition
-            return 2;
-        else if (c == '+' || c == '-')  // Addition and subtraction have lowest precedence
-            return 1;
-        else
-            return -1;
-    }
+        // Array to count frequency of characters in window
+        int[] freq = new int[26];
 
-    // Function to convert infix expression to postfix expression
-    public static void infixToPostfix(String s) {
-        Stack<Character> st = new Stack<>();  // Stack to hold operators and parentheses
-        StringBuilder result = new StringBuilder();  // StringBuilder to hold the resulting postfix expression
+        // Left pointer of sliding window
+        int left = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+        // Tracks the highest frequency in the window
+        int maxFreq = 0;
 
-            // If the scanned character is an operand, add it to the result string
-            if (Character.isLetterOrDigit(c)) {
-                result.append(c);
+        // Stores result
+        int maxLen = 0;
+
+        // Traverse the string with right pointer
+        for (int right = 0; right < s.length(); right++) {
+
+            // Increment count of current character
+            freq[s.charAt(right) - 'A']++;
+
+            // Update max frequency in current window
+            maxFreq = Math.max(maxFreq, freq[s.charAt(right) - 'A']);
+
+            // If number of changes exceeds k, shrink window
+            while ((right - left + 1) - maxFreq > k) {
+                freq[s.charAt(left) - 'A']--;
+                left++;
             }
 
-            // If the scanned character is an ‘(‘, push it to the stack
-            else if (c == '(') {
-                st.push('(');
-            }
-
-            // If the scanned character is a ‘)’, pop from stack until an ‘(‘ is encountered
-            else if (c == ')') {
-                while (st.peek() != '(') {
-                    result.append(st.pop());
-                }
-                st.pop();  // Pop the ‘(‘ from the stack
-            }
-
-            // If an operator is scanned
-            else {
-                while (!st.isEmpty() && prec(c) <= prec(st.peek())) {
-                    result.append(st.pop());
-                }
-                st.push(c);  // Push the current operator to the stack
-            }
+            // Update result with valid window length
+            maxLen = Math.max(maxLen, right - left + 1);
         }
 
-        // Pop all the remaining elements from the stack
-        while (!st.isEmpty()) {
-            result.append(st.pop());
-        }
-
-        System.out.println("Postfix expression: " + result.toString());  // Output the result
-    }
+        return maxLen;}
 
 
-
+// Driver code
 
     public static void main(String[] args) {
-        String exp = "a^b^c";  // Infix expression
-        System.out.println("Infix expression: " + exp);
-        Solution.infixToPostfix(exp);  // Convert the infix expression to postfix
+        Solution sol = new Solution();
+//        String s = "AABABBA";
+        String s = "AAAABBBB";
+
+
+        int k = 2;
+        System.out.println(sol.characterReplacement(s, k));
     }
 }

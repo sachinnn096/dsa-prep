@@ -23,7 +23,6 @@ class Infix2prefix {
         // *+ lekin yha * ke prioriyt jyda h toh phale vo solve hoga then + push krenge
 
         StringBuilder b = new StringBuilder();
-        b.
 
         //code
         //store +-*()
