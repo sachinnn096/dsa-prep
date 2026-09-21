@@ -1,4 +1,4 @@
-package HeapImplementation.withArray;
+package HeapImplementation.withArray.maxHeap;
 
 class Main{
     public static void main(String[] args) {

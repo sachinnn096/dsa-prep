@@ -1,4 +1,4 @@
-package HeapImplementation.withArray;
+package HeapImplementation.withArray.maxHeap;
 
 //Max Heap implementation with array
 
