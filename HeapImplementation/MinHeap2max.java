@@ -38,6 +38,19 @@ class MinHeap2max {
         }
     }
 
+    public boolean hasLeftChild( int index, int n ){
+        return 2 * index + 1 < n;
+    }
+    public boolean hasRightChild( int index, int n ){
+        return 2 * index + 2 < n;
+    }
+
+
+    public static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
     // Helper methods (hasLeftChild, hasRightChild, getLeftChildIndex, getRightChildIndex, swap)
     // remain exactly the same as your previous code!
 }
