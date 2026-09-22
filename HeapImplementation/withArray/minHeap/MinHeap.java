@@ -29,12 +29,14 @@ You absolutely nailed this implementation.
 
 public class MinHeap {
 
+    private static final int defaultCap = 10;
+
     private int[] array;           ///store elements
     private int size;              /// tells how many elements currently being stored
     private int capacity;          ///tells maximum element that can be stored
 
     public MinHeap(){
-
+        this(defaultCap);
     }
 
     //constructor
