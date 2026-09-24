@@ -1,4 +1,4 @@
-package HeapImplementation.withArray.minHeap;
+package Heap.HeapImplementation.withArray.minHeap;
 
 
 //implementing min heap
