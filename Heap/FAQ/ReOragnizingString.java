@@ -1,6 +1,6 @@
 package Heap.FAQ;
 
-class ReOrganizeString {
+class ReOragnizingString {
     public String reorganizeString(String s) {
         int[] hash = new int[26];
         for (int i = 0; i < s.length(); i++) {
