@@ -1,50 +1,85 @@
 package Heap.FAQ;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 
 class MedianFinder {
 
-    PriorityQueue<Integer> leftRoom;  //maxheap
-    PriorityQueue<Integer> rightRoom; //minheap
-    int size = 0;
+    PriorityQueue<Integer> left;  //maxheap
+    PriorityQueue<Integer> right; //minheap
 
     public MedianFinder() {
-        leftRoom = new PriorityQueue<>(Collections.reverseOrder());
-        rightRoom = new PriorityQueue<>();
+        left = new PriorityQueue<>(Collections.reverseOrder());
+        right = new PriorityQueue<>();
     }
 
     public void addNum(int num) {
-        size++;
+
         // 1. Conditional Insert: Put it exactly where it belongs
-        if( leftRoom.isEmpty() ) leftRoom.offer( num );
-        else if( rightRoom.isEmpty() ){
 
-            if( num >= leftRoom.peek() )
-                rightRoom.offer(num);
-            else {
-                rightRoom.add( leftRoom.poll() );
-                leftRoom.add( num );
-            }
+        if( left.isEmpty() || left.peek() > num )
+            left.offer( num );
+        else
+            right.offer( num );
+
+        //balancing the both halves
+        if( right.size() > left.size() ){
+            left.offer( right.peek() );
+            right.poll();
+
+        }else if( left.size() > right.size() + 1 ){
+            right.offer( left.peek() );
+            left.poll();
         }
 
-        else{
-            if( num > rightRoom.peek()   ){
-                rightRoom.offer( num );
-            }else leftRoom.offer( num );
 
-            if( leftRoom.size() > rightRoom.size() + 1  )
-                rightRoom.offer( leftRoom.poll() );
 
-            if( rightRoom.size() > leftRoom.size() )
-                leftRoom.offer( rightRoom.poll() );
-
-        }
     }
 
     public double findMedian() {
-        if ( size % 2 != 0 ) {
-            return leftRoom.peek();
+        if ( left.size() != right.size() ) {
+            return left.peek();
         }
-        return ((double)leftRoom.peek() + rightRoom.peek()) / 2.0;
+        return ((double)left.peek() + right.peek()) / 2.0;
     }
-}
+    class MedianFinder {
+
+        PriorityQueue<Integer> left;  //maxheap
+        PriorityQueue<Integer> right; //minheap
+
+        public MedianFinder() {
+            left = new PriorityQueue<>(Collections.reverseOrder());
+            right = new PriorityQueue<>();
+        }
+
+        public void addNum(int num) {
+
+            // 1. Conditional Insert: Put it exactly where it belongs
+
+            if( left.isEmpty() || left.peek() > num )
+                left.offer( num );
+            else
+                right.offer( num );
+
+            //balancing the both halves
+            if( right.size() > left.size() ){
+                left.offer( right.peek() );
+                right.poll();
+
+            }else if( left.size() > right.size() + 1 ){
+                right.offer( left.peek() );
+                left.poll();
+            }
+
+
+
+        }
+
+        public double findMedian() {
+            if ( left.size() != right.size() ) {
+                return left.peek();
+            }
+            return ((double)left.peek() + right.peek()) / 2.0;
+        }
+    }
