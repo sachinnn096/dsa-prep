@@ -78,3 +78,73 @@ class MinSumCombination {
         return res;
     }
 }
+
+
+
+
+
+
+
+
+//optimized code and approach]
+/*
+
+class Solution {
+
+    class Triplet{
+        int sum;
+        int i;
+        int j;
+        public Triplet( int sum, int i ,int j ){
+            this.sum = sum;
+            this.i = i;
+            this.j = j;
+        }
+    }
+
+    public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
+
+
+
+        return findKPairs( nums1, nums2, k );
+
+    }
+
+    private List<List<Integer>> findKPairs( int[] nums1, int[] nums2, int k ){
+
+        int n1 = nums1.length;
+        int n2 = nums2.length;
+
+        //store pairs
+         List<List<Integer>> res = new ArrayList<>();
+           //min heap on basis of sum
+        PriorityQueue<Triplet> pq = new PriorityQueue<>( (a,b)->Integer.compare( a.sum,b.sum ) );
+          // keep track of which cell is visited index (row) -> HashSet
+
+
+    //small optimization 1 which is placing k
+          for( int i = 0 ; i < Math.min( nums1.length , k) ; i++ ){
+             //adding first cell of every row
+            pq.offer( new Triplet( nums1[i]+nums2[0], i, 0 ) );
+        }
+
+
+        while( k > 0 ){
+            //fetching minimum sum pair
+            int sum = pq.peek().sum;
+            int i = pq.peek().i;
+            int j = pq.peek().j;
+
+            res.add( Arrays.asList( nums1[i],nums2[j] ) );   //adding pair to result
+            //removing the top most element
+            pq.poll();
+            k--;
+            //looking for next smaller pairs in right side
+            if( j+1 < n2  ){
+                pq.offer( new Triplet( nums1[i]+nums2[j+1], i, j+1 ) );
+            }
+        }
+        return res;
+    }
+}
+ */
