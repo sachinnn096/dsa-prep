@@ -3,7 +3,7 @@ package Heap.FAQ;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-
+/*
 class MedianFinder {
 
     PriorityQueue<Integer> left;  //maxheap
@@ -83,3 +83,5 @@ class MedianFinder {
             return ((double)left.peek() + right.peek()) / 2.0;
         }
     }
+
+ */

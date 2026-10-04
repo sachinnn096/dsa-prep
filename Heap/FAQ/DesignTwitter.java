@@ -29,7 +29,7 @@ class DesignTwitter {
     int seq;
 
     //intializing the data structure
-    public Twitter() {
+    public DesignTwitter() {
         userDetails = new HashMap<>();
         tweets = new HashMap<>();
         this.seq = 0;

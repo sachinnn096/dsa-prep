@@ -1,6 +1,6 @@
 package Heap;
 
-
+/*
 
 class MinHeap2max {
     public void convertToMinHeap(int[] arr) {
@@ -54,3 +54,6 @@ class MinHeap2max {
     // Helper methods (hasLeftChild, hasRightChild, getLeftChildIndex, getRightChildIndex, swap)
     // remain exactly the same as your previous code!
 }
+
+
+ */
